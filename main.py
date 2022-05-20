@@ -1,4 +1,12 @@
 import random
+import art
+import os
+import time
+
+
+def clear():
+    time.sleep(1)
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def get_score(hand):
@@ -28,6 +36,7 @@ def main():
 
     while True:
         play = input('Play a game of Blackjack (\'y\' or \'n\'): ')
+        clear()
         if play == 'n':
             break
 
@@ -39,6 +48,7 @@ def main():
             computer_hand.append(deck.pop(0))
 
         while True:
+            print(art.logo)
             print(f'Your cards: {", ".join(player_hand)}')
             print(f'Computer\'s first card: {computer_hand[0]}')
             hit = input('Type \'y\' for another card, \'n\' to pass: ')
@@ -82,6 +92,8 @@ Computer score: {computer_score}
             print('YOU WIN!')
         else:
             print('YOU LOSE!')
+
+        clear()
 
 
 if __name__ == '__main__':
